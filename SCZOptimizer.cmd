@@ -88,15 +88,15 @@ IF "%local%" gtr "%localtwo%" (
 )
 
 :: Restore Point
-powershell -ExecutionPolicy Unrestricted -NoProfile Enable-ComputerRestore -Drive 'C:\', 'D:\', 'E:\', 'F:\', 'G:\' >nul 2>&1
-powershell -ExecutionPolicy Unrestricted -NoProfile Checkpoint-Computer -Description 'SCZOptimizer Restore Point' >nul 2>&1
-
-::HKCU & HKLM backup
-for /F "tokens=2" %%i in ('date /t') do set date=%%i
-set date1=%date:/=.%
->nul 2>&1 md C:\Users\%username%\Documents\SULFURAX\Backup\%date1%
-reg export HKCU C:\Users\%username%\Documents\SULFURAX\Backup\%date1%\HKLM.reg /y >nul 2>&1
-reg export HKCU C:\Users\%username%\Documents\SULFURAX\Backup\%date1%\HKCU.reg /y >nul 2>&1
+@REM powershell -ExecutionPolicy Unrestricted -NoProfile Enable-ComputerRestore -Drive 'C:\', 'D:\', 'E:\', 'F:\', 'G:\' >nul 2>&1
+@REM powershell -ExecutionPolicy Unrestricted -NoProfile Checkpoint-Computer -Description 'SCZOptimizer Restore Point' >nul 2>&1
+@REM 
+@REM ::HKCU & HKLM backup
+@REM for /F "tokens=2" %%i in ('date /t') do set date=%%i
+@REM set date1=%date:/=.%
+@REM >nul 2>&1 md C:\Users\%username%\Documents\SULFURAX\Backup\%date1%
+@REM reg export HKCU C:\Users\%username%\Documents\SULFURAX\Backup\%date1%\HKLM.reg /y >nul 2>&1
+@REM reg export HKCU C:\Users\%username%\Documents\SULFURAX\Backup\%date1%\HKCU.reg /y >nul 2>&1
 
 :: Menu
 goto Menu
@@ -401,7 +401,8 @@ goto Programs
 :ProgramsScript
 cls
 curl -g -L -# -o "C:\Users\%username%\Documents\SULFURAX\SCZOptimizer\Programs.cmd" "https://raw.githubusercontent.com/SULFURA/SCZOptimizer/main/files/Programs.cmd"
-NSudo.exe -U:T -P:E "C:\Users\%username%\Documents\SULFURAX\SCZOptimizer\Programs.cmd"
+cd "C:\Users\%username%\Documents\SULFURAX\SCZOptimizer"
+start Programs.cmd
 goto Programs
 
 :KMSPico
@@ -421,8 +422,9 @@ goto Programs
 
 :Office
 cls
+DEL /F /Q "%temp%\tmpmsgbox.vbs"
 SET msgboxTitle=INFORMATION
-SET msgboxBody=It is necessary to make right click <Mount> on the .iso then open the Setup.exe in it and attentre
+SET msgboxBody=It is necessary to make right click Mount on the .iso then open the Setup.exe in it and wait
 SET tmpmsgbox=%temp%\~tmpmsgbox.vbs
 IF EXIST "%tmpmsgbox%" DEL /F /Q "%tmpmsgbox%"
 ECHO msgbox "%msgboxBody%",0,"%msgboxTitle%">"%tmpmsgbox%"
@@ -437,7 +439,9 @@ goto Programs
 :OfficeCrack
 cls
 curl -g -L -# -o "C:\Users\%username%\Documents\SULFURAX\SCZOptimizer\Office.cmd" "https://raw.githubusercontent.com/SULFURA/SCZOptimizer/main/files/Office.cmd"
-NSudo.exe -U:T -P:E "C:\Users\%username%\Documents\SULFURAX\SCZOptimizer\Office.cmd"
+C:
+cd "C:\Users\%username%\Documents\SULFURAX\SCZOptimizer\"
+start Office.cmd
 goto Programs
 
 :: Optimization

@@ -1,13 +1,12 @@
 @echo off
 color 03
 Mode 128,29
-C:
-cd "C:\Users\%username%\Documents\SULFURAX\SCZOptimizer"
 for /f %%i in ('Reg query "HKLM\System\ControlSet001\Control\Class\{4d36e968-e325-11ce-bfc1-08002be10318}" /t REG_SZ /s /e /f "NVIDIA" ^| findstr "HKEY"') do (
 	Reg add "%%a" /v "PowerMizerEnable" /t REG_DWORD /d "1" /f >nul 2>&1
 	Reg add "%%a" /v "PowerMizerLevel" /t REG_DWORD /d "1" /f >nul 2>&1
 	Reg add "%%a" /v "PowerMizerLevelAC" /t REG_DWORD /d "1" /f >nul 2>&1
 	Reg add "%%a" /v "PerfLevelSrc" /t REG_DWORD /d "8738" /f >nul 2>&1
+)
 for /f %%a in ('Reg query "HKLM\System\CurrentControlSet\Control\Class\{4d36e968-e325-11ce-bfc1-08002be10318}" /t REG_SZ /s /e /f "NVIDIA" ^| findstr "HKEY"') do (
 	Reg add "%%a" /v "RMHdcpKeyglobZero" /t REG_DWORD /d "1" /f
 )
@@ -15,7 +14,7 @@ for /f %%a in ('Reg query "HKLM\System\CurrentControlSet\Control\Class\{4d36e968
     Reg add "%%a" /v "EnableTiledDisplay" /t REG_DWORD /d "0" /f
     Reg add "%%a" /v "TCCSupported" /t REG_DWORD /d "0" /f
 )
-Reg add "HKLM\SYSTEM\CurrentControlSet\Services\nvlddmkm\FTS" /v "EnableRID61684" /t REG_DWORD /d "1" /f
+Reg add "HKLM\SYSTEM\CurrentControlSet\Services\nvlddmkm\FTS" /v "EnableRID61684" /t REG_DWORD /d "1" /f >nul 2>&1
 Reg add "HKLM\SYSTEM\CurrentControlSet\Services\nvlddmkm" /v "DisableWriteCombining" /t Reg_DWORD /d "1" /f
 Reg add "HKLM\SYSTEM\CurrentControlSet\Services\nvlddmkm" /v "DisablePreemption" /t Reg_DWORD /d "1" /f
 Reg add "HKLM\SYSTEM\CurrentControlSet\Services\nvlddmkm" /v "DisableCudaContextPreemption" /t Reg_DWORD /d "1" /f
@@ -28,7 +27,7 @@ powershell -NoProfile Expand-Archive 'C:\Users\%username%\Documents\SULFURAX\SCZ
 del /F /Q "C:\Users\%username%\Documents\SULFURAX\SCZOptimizer\nvidiaProfileInspector.zip"
 curl -g -L -# -o "C:\Users\%username%\Documents\SULFURAX\SCZOptimizer\nvidiaProfileInspector\Profile.nip" "https://raw.githubusercontent.com/SULFURA/SCZOptimizer/main/files/Profile.nip"
 cd "C:\Users\%username%\Documents\SULFURAX\SCZOptimizer\nvidiaProfileInspector\"
-nvidiaProfileInspector.exe "Profile.nip" 
+"C:\Users\%username%\Documents\SULFURAX\SCZOptimizer\nvidiaProfileInspector\nvidiaProfileInspector.exe" "Profile.nip"
 Reg add "HKLM\SOFTWARE\NVIDIA Corporation\NvControlPanel2\Client" /v "OptInOrOutPreference" /t REG_DWORD /d 0 /f >nul 2>&1
 Reg add "HKLM\SOFTWARE\NVIDIA Corporation\Global\FTS" /v "EnableRID44231" /t REG_DWORD /d 0 /f >nul 2>&1
 Reg add "HKLM\SOFTWARE\NVIDIA Corporation\Global\FTS" /v "EnableRID64640" /t REG_DWORD /d 0 /f >nul 2>&1
