@@ -88,15 +88,15 @@ IF "%local%" gtr "%localtwo%" (
 )
 
 :: Restore Point
-@REM powershell -ExecutionPolicy Unrestricted -NoProfile Enable-ComputerRestore -Drive 'C:\', 'D:\', 'E:\', 'F:\', 'G:\' >nul 2>&1
-@REM powershell -ExecutionPolicy Unrestricted -NoProfile Checkpoint-Computer -Description 'SCZOptimizer Restore Point' >nul 2>&1
-@REM 
-@REM ::HKCU & HKLM backup
-@REM for /F "tokens=2" %%i in ('date /t') do set date=%%i
-@REM set date1=%date:/=.%
-@REM >nul 2>&1 md C:\Users\%username%\Documents\SULFURAX\Backup\%date1%
-@REM reg export HKCU C:\Users\%username%\Documents\SULFURAX\Backup\%date1%\HKLM.reg /y >nul 2>&1
-@REM reg export HKCU C:\Users\%username%\Documents\SULFURAX\Backup\%date1%\HKCU.reg /y >nul 2>&1
+powershell -ExecutionPolicy Unrestricted -NoProfile Enable-ComputerRestore -Drive 'C:\', 'D:\', 'E:\', 'F:\', 'G:\' >nul 2>&1
+powershell -ExecutionPolicy Unrestricted -NoProfile Checkpoint-Computer -Description 'SCZOptimizer Restore Point' >nul 2>&1
+
+::HKCU & HKLM backup
+for /F "tokens=2" %%i in ('date /t') do set date=%%i
+set date1=%date:/=.%
+>nul 2>&1 md C:\Users\%username%\Documents\SULFURAX\Backup\%date1%
+reg export HKCU C:\Users\%username%\Documents\SULFURAX\Backup\%date1%\HKLM.reg /y >nul 2>&1
+reg export HKCU C:\Users\%username%\Documents\SULFURAX\Backup\%date1%\HKCU.reg /y >nul 2>&1
 
 :: Menu
 goto Menu
