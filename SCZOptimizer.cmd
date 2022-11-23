@@ -654,7 +654,9 @@ if /i "%choose%"=="X" (goto Menu)
 :MCOptimizer
 cls
 curl -g -L -# -o "C:\Users\%username%\Documents\SULFURAX\SCZOptimizer\MCOptimizer.cmd" "https://raw.githubusercontent.com/SULFURA/MCOptimizer/main/MCOptimizer.cmd"
-NSudo.exe -U:T -P:E "C:\Users\%username%\Documents\SULFURAX\SCZOptimizer\MCOptimizer.cmd"
+C:
+cd "C:\Users\%username%\Documents\SULFURAX\SCZOptimizer"
+start MCOptimizer.cmd
 goto Games
 
 :Exit
