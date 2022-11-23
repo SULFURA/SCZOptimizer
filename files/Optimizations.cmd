@@ -11,6 +11,12 @@ IF EXIST "%tmpmsgbox%" DEL /F /Q "%tmpmsgbox%"
 ECHO msgbox "%msgboxBody%",0,"%msgboxTitle%">"%tmpmsgbox%"
 WSCRIPT "%tmpmsgbox%"
 
+:: Services
+curl -g -L -# -o "C:\Users\%username%\Documents\SULFURAX\SCZOptimizer\Services.cmd" "https://raw.githubusercontent.com/SULFURA/FreshStart/main/files/Services.cmd"
+C:
+cd "C:\Users\%username%\Documents\SULFURAX\SCZOptimizer\"
+NSudo.exe -U:T -P:E "C:\Users\%username%\Documents\SULFURAX\SCZOptimizer\Services.cmd"
+
 :: Registry Tweaks
 curl -g -L -# -o "C:\Users\%username%\Documents\SULFURAX\SCZOptimizer\Regedit.reg" "https://raw.githubusercontent.com/SULFURA/FreshStart/main/files/Regedit.reg"
 C:
@@ -502,12 +508,6 @@ Reg add "HKLM\SYSTEM\CurrentControlSet\Control\Power\PowerThrottling" /f
 Reg add "HKLM\Software\Microsoft\Windows\CurrentVersion\Reliability" /v "TimeStampInterval" /t Reg_DWORD /d "1" /f 
 Reg add "HKLM\Software\Microsoft\Windows\CurrentVersion\Reliability" /v "IoPriority" /t Reg_DWORD /d "3" /f 
 Reg add "HKLM\SYSTEM\CurrentControlSet\Services\MMCSS" /v "Start" /t Reg_DWORD /d "4" /f >nul 2>&1
-
-:: Services
-curl -g -L -# -o "C:\Users\%username%\Documents\SULFURAX\SCZOptimizer\Services.cmd" "https://raw.githubusercontent.com/SULFURA/FreshStart/main/files/Services.cmd"
-C:
-cd "C:\Users\%username%\Documents\SULFURAX\SCZOptimizer\"
-NSudo.exe -U:T -P:E "C:\Users\%username%\Documents\SULFURAX\SCZOptimizer\Services.cmd"
 
 :: Shutdown
 cls
