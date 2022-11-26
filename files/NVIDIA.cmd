@@ -21,13 +21,13 @@ Reg add "HKLM\SYSTEM\CurrentControlSet\Services\nvlddmkm" /v "DisableCudaContext
 Reg add "HKLM\SYSTEM\CurrentControlSet\Services\nvlddmkm" /v "EnableCEPreemption" /t Reg_DWORD /d "0" /f
 Reg add "HKLM\SYSTEM\CurrentControlSet\Services\nvlddmkm" /v "DisablePreemptionOnS3S4" /t Reg_DWORD /d "1" /f
 Reg add "HKLM\SYSTEM\CurrentControlSet\Services\nvlddmkm" /v "ComputePreemption" /t Reg_DWORD /d "0" /f
-rmdir /S /Q "C:\Users\%username%\Documents\SULFURAX\SCZOptimizer\nvidiaProfileInspector"
-curl -g -L -# -o "C:\Users\%username%\Documents\SULFURAX\SCZOptimizer\nvidiaProfileInspector.zip" "https://github.com/Orbmu2k/nvidiaProfileInspector/releases/latest/download/nvidiaProfileInspector.zip"
-powershell -NoProfile Expand-Archive 'C:\Users\%username%\Documents\SULFURAX\SCZOptimizer\nvidiaProfileInspector.zip' -DestinationPath 'C:\Users\%username%\Documents\SULFURAX\SCZOptimizer\nvidiaProfileInspector\'
-del /F /Q "C:\Users\%username%\Documents\SULFURAX\SCZOptimizer\nvidiaProfileInspector.zip"
-curl -g -L -# -o "C:\Users\%username%\Documents\SULFURAX\SCZOptimizer\nvidiaProfileInspector\Profile.nip" "https://raw.githubusercontent.com/SULFURA/SCZOptimizer/main/files/Profile.nip"
-cd "C:\Users\%username%\Documents\SULFURAX\SCZOptimizer\nvidiaProfileInspector\"
-"C:\Users\%username%\Documents\SULFURAX\SCZOptimizer\nvidiaProfileInspector\nvidiaProfileInspector.exe" "Profile.nip"
+rmdir /S /Q "C:\SULFURAX\SCZOptimizer\nvidiaProfileInspector"
+curl -g -L -# -o "C:\SULFURAX\SCZOptimizer\nvidiaProfileInspector.zip" "https://github.com/Orbmu2k/nvidiaProfileInspector/releases/latest/download/nvidiaProfileInspector.zip"
+powershell -NoProfile Expand-Archive 'C:\SULFURAX\SCZOptimizer\nvidiaProfileInspector.zip' -DestinationPath 'C:\SULFURAX\SCZOptimizer\nvidiaProfileInspector\'
+del /F /Q "C:\SULFURAX\SCZOptimizer\nvidiaProfileInspector.zip"
+curl -g -L -# -o "C:\SULFURAX\SCZOptimizer\nvidiaProfileInspector\Profile.nip" "https://raw.githubusercontent.com/SULFURA/SCZOptimizer/main/files/Profile.nip"
+cd "C:\SULFURAX\SCZOptimizer\nvidiaProfileInspector\"
+"C:\SULFURAX\SCZOptimizer\nvidiaProfileInspector\nvidiaProfileInspector.exe" "Profile.nip"
 Reg add "HKLM\SOFTWARE\NVIDIA Corporation\NvControlPanel2\Client" /v "OptInOrOutPreference" /t REG_DWORD /d 0 /f >nul 2>&1
 Reg add "HKLM\SOFTWARE\NVIDIA Corporation\Global\FTS" /v "EnableRID44231" /t REG_DWORD /d 0 /f >nul 2>&1
 Reg add "HKLM\SOFTWARE\NVIDIA Corporation\Global\FTS" /v "EnableRID64640" /t REG_DWORD /d 0 /f >nul 2>&1

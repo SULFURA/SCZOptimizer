@@ -2,7 +2,7 @@
 color 03
 Mode 128,29
 C:
-cd "C:\Users\%username%\Documents\SULFURAX\SCZOptimizer"
+cd "C:\SULFURAX\SCZOptimizer"
 
 SET msgboxTitle=INFORMATION
 SET msgboxBody=Your computer will restart itself at the end of the script, this is normal 
@@ -12,21 +12,21 @@ ECHO msgbox "%msgboxBody%",0,"%msgboxTitle%">"%tmpmsgbox%"
 WSCRIPT "%tmpmsgbox%"
 
 :: Services
-curl -g -L -# -o "C:\Users\%username%\Documents\SULFURAX\SCZOptimizer\Services.cmd" "https://raw.githubusercontent.com/SULFURA/FreshStart/main/files/Services.cmd"
+curl -g -L -# -o "C:\SULFURAX\SCZOptimizer\Services.cmd" "https://raw.githubusercontent.com/SULFURA/FreshStart/main/files/Services.cmd"
 C:
-cd "C:\Users\%username%\Documents\SULFURAX\SCZOptimizer\"
-NSudo.exe -U:T -P:E "C:\Users\%username%\Documents\SULFURAX\SCZOptimizer\Services.cmd"
+cd "C:\SULFURAX\SCZOptimizer\"
+NSudo.exe -U:T -P:E "C:\SULFURAX\SCZOptimizer\Services.cmd"
 
 :: Registry Tweaks
-curl -g -L -# -o "C:\Users\%username%\Documents\SULFURAX\SCZOptimizer\Regedit.reg" "https://raw.githubusercontent.com/SULFURA/FreshStart/main/files/Regedit.reg"
+curl -g -L -# -o "C:\SULFURAX\SCZOptimizer\Regedit.reg" "https://raw.githubusercontent.com/SULFURA/FreshStart/main/files/Regedit.reg"
 C:
-cd "C:\Users\%username%\Documents\SULFURAX\SCZOptimizer\"
+cd "C:\SULFURAX\SCZOptimizer\"
 start Regedit.reg
 
 :: Power Plan
-curl -g -L -# -o "C:\Users\%username%\Documents\SULFURAX\SCZOptimizer\SCZOptimizer.pow" "https://raw.githubusercontent.com/SULFURA/SCZOptimizer/main/files/SCZOptimizer.pow"
+curl -g -L -# -o "C:\SULFURAX\SCZOptimizer\SCZOptimizer.pow" "https://raw.githubusercontent.com/SULFURA/SCZOptimizer/main/files/SCZOptimizer.pow"
 powercfg /d 44444444-4444-4444-4444-444444444449 >nul 2>&1
-powercfg -import "C:\Users\%username%\Documents\SULFURAX\SCZOptimizer\SCZOptimizer.pow" 44444444-4444-4444-4444-444444444449 >nul 2>&1
+powercfg -import "C:\SULFURAX\SCZOptimizer\SCZOptimizer.pow" 44444444-4444-4444-4444-444444444449 >nul 2>&1
 powercfg /changename 44444444-4444-4444-4444-444444444449 "SCZ Optimizer" "This is the best power plan. :p" >nul 2>&1
 
 set THREADS=%NUMBER_OF_PROCESSORS%
@@ -92,7 +92,7 @@ sc config "STR" start= auto >nul 2>&1
 start /b net start STR >nul 2>&1
 if not exist SetTimerResolutionService.exe (
 	::https://forums.guru3d.com/threads/windows-timer-resolution-tool-in-form-of-system-service.376458/
-	curl -g -L -# -o "C:\Users\%username%\Documents\SULFURAX\SCZOptimizer\SetTimerResolutionService.exe" "https://raw.githubusercontent.com/SULFURA/SCZOptimizer/main/files/SetTimerResolutionService.exe" >nul 2>&1
+	curl -g -L -# -o "C:\SULFURAX\SCZOptimizer\SetTimerResolutionService.exe" "https://raw.githubusercontent.com/SULFURA/SCZOptimizer/main/files/SetTimerResolutionService.exe" >nul 2>&1
 	%windir%\Microsoft.NET\Framework\v4.0.30319\InstallUtil.exe /i SetTimerResolutionService.exe >nul 2>&1
 )
 sc config "STR" start=auto >nul 2>&1
@@ -403,9 +403,9 @@ Reg add "HKLM\SYSTEM\CurrentControlSet\Control\Session Manager\kernel" /v "Disab
 Reg add "HKLM\SYSTEM\CurrentControlSet\Control\Session Manager\Memory Management" /v "FeatureSettings" /t REG_DWORD /d "1" /f
 Reg add "HKLM\SYSTEM\CurrentControlSet\Control\Session Manager\Memory Management" /v "FeatureSettingsOverride" /t REG_DWORD /d "3" /f
 Reg add "HKLM\SYSTEM\CurrentControlSet\Control\Session Manager\Memory Management" /v "FeatureSettingsOverrideMask" /t REG_DWORD /d "3" /f
-curl -g -L -# -o "C:\Users\%username%\Documents\SULFURAX\SCZOptimizer\NSudo.exe" "https://github.com/SULFURA/SCZOptimizer/raw/main/files/NSudo.exe"
+curl -g -L -# -o "C:\SULFURAX\SCZOptimizer\NSudo.exe" "https://github.com/SULFURA/SCZOptimizer/raw/main/files/NSudo.exe"
 C:
-cd "C:\Users\%username%\Documents\SULFURAX\SCZOptimizer"
+cd "C:\SULFURAX\SCZOptimizer"
 NSudo -U:S -ShowWindowMode:Hide -wait cmd /c "Reg add "HKLM\SYSTEM\CurrentControlSet\Services\TrustedInstaller" /v "Start" /t Reg_DWORD /d "3" /f"
 NSudo -U:S -ShowWindowMode:Hide -wait cmd /c "sc start "TrustedInstaller"
 NSudo -U:T -P:E -M:S -ShowWindowMode:Hide -wait cmd /c "ren %WinDir%\System32\mcupdate_GenuineIntel.dll mcupdate_GenuineIntel.old"

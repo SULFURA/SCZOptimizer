@@ -16,7 +16,7 @@
 @echo off
 color 03
 Mode 128,29
-title Script SCZOptimizer 2.0
+title Script SCZOptimizer 2.1
 setlocal EnableDelayedExpansion
 
 SET msgboxTitle=INFORMATION
@@ -30,9 +30,9 @@ WSCRIPT "%tmpmsgbox%"
 Reg.exe add "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System" /v "EnableLUA" /t REG_DWORD /d "0" /f
 
 :: Dossier
-mkdir C:\Users\%username%\Documents\SULFURAX\SCZOptimizer >nul 2>&1
-mkdir C:\Users\%username%\Documents\SULFURAX\Backup >nul 2>&1
-cd C:\Users\%username%\Documents\SULFURAX\SCZOptimizer >nul 2>&1
+mkdir C:\SULFURAX\SCZOptimizer >nul 2>&1
+mkdir C:\SULFURAX\Backup >nul 2>&1
+cd C:\SULFURAX\SCZOptimizer >nul 2>&1
 
 :: Run Admin
 Reg.exe add HKLM /F >nul 2>&1
@@ -48,13 +48,13 @@ for /F "tokens=1,2 delims=#" %%a in ('"prompt #$H#$E# & echo on & for %%b in (1)
 Reg add HKCU\CONSOLE /v VirtualTerminalLevel /t REG_DWORD /d 1 /f >nul 2>&1
 
 :: NSudo
-curl -g -L -# -o "C:\Users\%username%\Documents\SULFURAX\SCZOptimizer\NSudo.exe" "https://github.com/SULFURA/SCZOptimizer/raw/main/files/NSudo.exe"
+curl -g -L -# -o "C:\SULFURAX\SCZOptimizer\NSudo.exe" "https://github.com/SULFURA/SCZOptimizer/raw/main/files/NSudo.exe"
 
 :: Check Updates
 goto CheckUpdates
 
 :CheckUpdates
-set local=2.0
+set local=2.1
 set localtwo=%local%
 if exist "%temp%\Updater.bat" DEL /S /Q /F "%temp%\Updater.bat" >nul 2>&1
 curl -g -L -# -o "%temp%\Updater.bat" "https://raw.githubusercontent.com/SULFURA/SCZOptimizer/main/files/SCZOptimizer_Version" >nul 2>&1
@@ -94,9 +94,9 @@ powershell -ExecutionPolicy Unrestricted -NoProfile Checkpoint-Computer -Descrip
 ::HKCU & HKLM backup
 for /F "tokens=2" %%i in ('date /t') do set date=%%i
 set date1=%date:/=.%
->nul 2>&1 md C:\Users\%username%\Documents\SULFURAX\Backup\%date1%
-reg export HKCU C:\Users\%username%\Documents\SULFURAX\Backup\%date1%\HKLM.reg /y >nul 2>&1
-reg export HKCU C:\Users\%username%\Documents\SULFURAX\Backup\%date1%\HKCU.reg /y >nul 2>&1
+>nul 2>&1 md C:\SULFURAX\Backup\%date1%
+reg export HKCU C:\SULFURAX\Backup\%date1%\HKLM.reg /y >nul 2>&1
+reg export HKCU C:\SULFURAX\Backup\%date1%\HKCU.reg /y >nul 2>&1
 
 :: Menu
 goto Menu
@@ -105,7 +105,7 @@ goto Menu
 cls
 echo.
 echo.
-call :ColorText 08  "                                                             Version 2.0 
+call :ColorText 08  "                                                             Version 2.1 
 echo.
 echo.
 echo.                                                       .d8888.  .o88b. d88888D 
@@ -163,7 +163,7 @@ goto Menu
 cls
 echo.
 echo.
-call :ColorText 08  "                                                             Version 2.0 
+call :ColorText 08  "                                                             Version 2.1 
 echo.
 echo.
 echo.                                                       .d8888.  .o88b. d88888D 
@@ -212,7 +212,7 @@ if /i "%choose%"=="X" (goto Menu)
 cls
 echo.
 echo.
-call :ColorText 08  "                                                             Version 2.0 
+call :ColorText 08  "                                                             Version 2.1 
 echo.
 echo.
 echo.                                                       .d8888.  .o88b. d88888D 
@@ -268,9 +268,9 @@ goto start
 :rufus
 cls
 cmd /C start https://rufus.ie/fr/
-curl -g -L -# -o "C:\Users\%username%\Documents\SULFURAX\SCZOptimizer\Rufus.jpg" "https://raw.githubusercontent.com/SULFURA/SCZOptimizer/main/files/Rufus.jpg"
+curl -g -L -# -o "C:\SULFURAX\SCZOptimizer\Rufus.jpg" "https://raw.githubusercontent.com/SULFURA/SCZOptimizer/main/files/Rufus.jpg"
 C:
-cd "C:\Users\%username%\Documents\SULFURAX\SCZOptimizer
+cd "C:\SULFURAX\SCZOptimizer"
 start Rufus.jpg
 cls
 goto start
@@ -346,7 +346,7 @@ goto start
 cls
 echo.
 echo.
-call :ColorText 08  "                                                             Version 2.0 
+call :ColorText 08  "                                                             Version 2.1 
 echo.
 echo.
 echo.                                                       .d8888.  .o88b. d88888D 
@@ -400,8 +400,8 @@ goto Programs
 
 :ProgramsScript
 cls
-curl -g -L -# -o "C:\Users\%username%\Documents\SULFURAX\SCZOptimizer\Programs.cmd" "https://raw.githubusercontent.com/SULFURA/SCZOptimizer/main/files/Programs.cmd"
-cd "C:\Users\%username%\Documents\SULFURAX\SCZOptimizer"
+curl -g -L -# -o "C:\SULFURAX\SCZOptimizer\Programs.cmd" "https://raw.githubusercontent.com/SULFURA/SCZOptimizer/main/files/Programs.cmd"
+cd "C:\SULFURAX\SCZOptimizer"
 start Programs.cmd
 goto Programs
 
@@ -417,7 +417,7 @@ echo First of all you have to deactivate your Antivirus, when it's done press a 
 echo.
 echo.
 pause
-cmd /c start https://www35.zippyshare.com/d/JaKKk3h4/28502/KMSpico%2010.2.0%20Final%20%2b%20Portable.rar
+cmd /c start https://www35.zippyshare.com/d/JaKKk3h4/28502/KMSpico%2010.2.1%20Final%20%2b%20Portable.rar
 goto Programs
 
 :Office
@@ -438,9 +438,9 @@ goto Programs
 
 :OfficeCrack
 cls
-curl -g -L -# -o "C:\Users\%username%\Documents\SULFURAX\SCZOptimizer\Office.cmd" "https://raw.githubusercontent.com/SULFURA/SCZOptimizer/main/files/Office.cmd"
+curl -g -L -# -o "C:\SULFURAX\SCZOptimizer\Office.cmd" "https://raw.githubusercontent.com/SULFURA/SCZOptimizer/main/files/Office.cmd"
 C:
-cd "C:\Users\%username%\Documents\SULFURAX\SCZOptimizer\"
+cd "C:\SULFURAX\SCZOptimizer\"
 start Office.cmd
 goto Programs
 
@@ -450,7 +450,7 @@ goto Programs
 cls
 echo.
 echo.
-call :ColorText 08  "                                                             Version 2.0 
+call :ColorText 08  "                                                             Version 2.1 
 echo.
 echo.
 echo.                                                       .d8888.  .o88b. d88888D 
@@ -514,8 +514,8 @@ if /i "%choose%"=="X" (goto Menu)
 
 :Opti
 cls
-curl -g -L -# -o "C:\Users\%username%\Documents\SULFURAX\SCZOptimizer\Optimizations.cmd" "https://raw.githubusercontent.com/SULFURA/SCZOptimizer/main/files/Optimizations.cmd"
-NSudo.exe -U:T -P:E "C:\Users\%username%\Documents\SULFURAX\SCZOptimizer\Optimizations.cmd"
+curl -g -L -# -o "C:\SULFURAX\SCZOptimizer\Optimizations.cmd" "https://raw.githubusercontent.com/SULFURA/SCZOptimizer/main/files/Optimizations.cmd"
+NSudo.exe -U:T -P:E "C:\SULFURAX\SCZOptimizer\Optimizations.cmd"
 goto Optimization
 
 :MouseFix
@@ -572,20 +572,20 @@ echo If you have uninstalled and reinstalled your graphics driver, press a key t
 echo.
 echo.
 pause
-curl -g -L -# -o "C:\Users\%username%\Documents\SULFURAX\SCZOptimizer\NVIDIA.cmd" "https://raw.githubusercontent.com/SULFURA/SCZOptimizer/main/files/NVIDIA.cmd"
-NSudo.exe -U:T -P:E "C:\Users\%username%\Documents\SULFURAX\SCZOptimizer\NVIDIA.cmd"
+curl -g -L -# -o "C:\SULFURAX\SCZOptimizer\NVIDIA.cmd" "https://raw.githubusercontent.com/SULFURA/SCZOptimizer/main/files/NVIDIA.cmd"
+NSudo.exe -U:T -P:E "C:\SULFURAX\SCZOptimizer\NVIDIA.cmd"
 goto Optimization
 
 :AMD
 cls
-curl -g -L -# -o "C:\Users\%username%\Documents\SULFURAX\SCZOptimizer\AMD.cmd" "https://raw.githubusercontent.com/SULFURA/SCZOptimizer/main/files/AMD.cmd"
-NSudo.exe -U:T -P:E "C:\Users\%username%\Documents\SULFURAX\SCZOptimizer\AMD.cmd"
+curl -g -L -# -o "C:\SULFURAX\SCZOptimizer\AMD.cmd" "https://raw.githubusercontent.com/SULFURA/SCZOptimizer/main/files/AMD.cmd"
+NSudo.exe -U:T -P:E "C:\SULFURAX\SCZOptimizer\AMD.cmd"
 goto Optimization
 
 :Intel
 cls
-curl -g -L -# -o "C:\Users\%username%\Documents\SULFURAX\SCZOptimizer\Intel.cmd" "https://raw.githubusercontent.com/SULFURA/SCZOptimizer/main/files/Intel.cmd"
-NSudo.exe -U:T -P:E "C:\Users\%username%\Documents\SULFURAX\SCZOptimizer\Intel.cmd"
+curl -g -L -# -o "C:\SULFURAX\SCZOptimizer\Intel.cmd" "https://raw.githubusercontent.com/SULFURA/SCZOptimizer/main/files/Intel.cmd"
+NSudo.exe -U:T -P:E "C:\SULFURAX\SCZOptimizer\Intel.cmd"
 goto Optimization
 
 :ISLC
@@ -611,9 +611,9 @@ WSCRIPT "%tmpmsgbox%"
 echo Follow the instructions on the open image to configure it once you have unzipped and opened it
 echo.
 echo.
-curl -g -L -# -o "C:\Users\%username%\Documents\SULFURAX\SCZOptimizer\ISLC.png" "https://raw.githubusercontent.com/SULFURA/SCZOptimizer/main/files/ISLC.png"
+curl -g -L -# -o "C:\SULFURAX\SCZOptimizer\ISLC.png" "https://raw.githubusercontent.com/SULFURA/SCZOptimizer/main/files/ISLC.png"
 C:
-cd "C:\Users\%username%\Documents\SULFURAX\SCZOptimizer
+cd "C:\SULFURAX\SCZOptimizer
 start ISLC.png
 pause
 goto Optimization
@@ -622,7 +622,7 @@ goto Optimization
 cls
 echo.
 echo.
-call :ColorText 08  "                                                             Version 2.0 
+call :ColorText 08  "                                                             Version 2.1 
 echo.
 echo.
 echo.                                                       .d8888.  .o88b. d88888D 
@@ -657,9 +657,9 @@ if /i "%choose%"=="X" (goto Menu)
 
 :MCOptimizer
 cls
-curl -g -L -# -o "C:\Users\%username%\Documents\SULFURAX\SCZOptimizer\MCOptimizer.cmd" "https://raw.githubusercontent.com/SULFURA/MCOptimizer/main/MCOptimizer.cmd"
+curl -g -L -# -o "C:\SULFURAX\SCZOptimizer\MCOptimizer.cmd" "https://raw.githubusercontent.com/SULFURA/MCOptimizer/main/MCOptimizer.cmd"
 C:
-cd "C:\Users\%username%\Documents\SULFURAX\SCZOptimizer"
+cd "C:\SULFURAX\SCZOptimizer"
 start MCOptimizer.cmd
 goto Games
 
