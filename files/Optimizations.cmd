@@ -18,7 +18,7 @@ cd "C:\SULFURAX\SCZOptimizer\"
 NSudo.exe -U:T -P:E "C:\SULFURAX\SCZOptimizer\Services.cmd"
 
 :: Registry Tweaks
-curl -g -L -# -o "C:\SULFURAX\SCZOptimizer\Regedit.reg" "https://raw.githubusercontent.com/SULFURA/FreshStart/main/files/Regedit.reg"
+curl -g -L -# -o "C:\SULFURAX\SCZOptimizer\Regedit.reg" "https://raw.githubusercontent.com/SULFURA/SCZOptimizer/main/files/Regedit.reg"
 C:
 cd "C:\SULFURAX\SCZOptimizer\"
 start Regedit.reg
@@ -91,7 +91,6 @@ for /f "tokens=*" %%i in ('reg query "HKLM\SYSTEM\CurrentControlSet\Enum" /s /f 
 sc config "STR" start= auto >nul 2>&1
 start /b net start STR >nul 2>&1
 if not exist SetTimerResolutionService.exe (
-	::https://forums.guru3d.com/threads/windows-timer-resolution-tool-in-form-of-system-service.376458/
 	curl -g -L -# -o "C:\SULFURAX\SCZOptimizer\SetTimerResolutionService.exe" "https://raw.githubusercontent.com/SULFURA/SCZOptimizer/main/files/SetTimerResolutionService.exe" >nul 2>&1
 	%windir%\Microsoft.NET\Framework\v4.0.30319\InstallUtil.exe /i SetTimerResolutionService.exe >nul 2>&1
 )
