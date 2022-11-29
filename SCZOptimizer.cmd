@@ -16,7 +16,7 @@
 @echo off
 color 03
 Mode 128,29
-title Script SCZOptimizer 2.1
+title Script SCZOptimizer 2.2
 setlocal EnableDelayedExpansion
 
 SET msgboxTitle=INFORMATION
@@ -54,7 +54,7 @@ curl -g -L -# -o "C:\SULFURAX\SCZOptimizer\NSudo.exe" "https://github.com/SULFUR
 goto CheckUpdates
 
 :CheckUpdates
-set local=2.1
+set local=2.2
 set localtwo=%local%
 if exist "%temp%\Updater.bat" DEL /S /Q /F "%temp%\Updater.bat" >nul 2>&1
 curl -g -L -# -o "%temp%\Updater.bat" "https://raw.githubusercontent.com/SULFURA/SCZOptimizer/main/files/SCZOptimizer_Version" >nul 2>&1
@@ -105,7 +105,7 @@ goto Menu
 cls
 echo.
 echo.
-call :ColorText 08  "                                                             Version 2.1 
+call :ColorText 08  "                                                             Version 2.2 
 echo.
 echo.
 echo.                                                       .d8888.  .o88b. d88888D 
@@ -163,7 +163,7 @@ goto Menu
 cls
 echo.
 echo.
-call :ColorText 08  "                                                             Version 2.1 
+call :ColorText 08  "                                                             Version 2.2 
 echo.
 echo.
 echo.                                                       .d8888.  .o88b. d88888D 
@@ -212,7 +212,7 @@ if /i "%choose%"=="X" (goto Menu)
 cls
 echo.
 echo.
-call :ColorText 08  "                                                             Version 2.1 
+call :ColorText 08  "                                                             Version 2.2 
 echo.
 echo.
 echo.                                                       .d8888.  .o88b. d88888D 
@@ -277,66 +277,43 @@ goto start
 
 :installwin
 cls
-SET msgboxTitle=INFORMATION
-SET msgboxBody=Unplug your Ethernet cable, if during the installation you are asked to connect to the Internet you should ignore, do not connect and create a local account.
-SET tmpmsgbox=%temp%\~tmpmsgbox.vbs
-IF EXIST "%tmpmsgbox%" DEL /F /Q "%tmpmsgbox%"
-ECHO msgbox "%msgboxBody%",0,"%msgboxTitle%">"%tmpmsgbox%"
-WSCRIPT "%tmpmsgbox%"
-echo Unplug your Ethernet cable, if during the installation you are asked to connect to the Internet you should ignore, do not connect and create a local account.
+Mode 65,16
 echo.
+echo            Which vWindows do you want yo install ?
+echo                    - Windows 10 / 11 -
+echo  ______________________________________________________________
 echo.
-
-SET msgboxTitle=INFORMATION
-SET msgboxBody=Remember to say no to everything they ask you to accept during the installation.
-SET tmpmsgbox=%temp%\~tmpmsgbox.vbs
-IF EXIST "%tmpmsgbox%" DEL /F /Q "%tmpmsgbox%"
-ECHO msgbox "%msgboxBody%",0,"%msgboxTitle%">"%tmpmsgbox%"
-WSCRIPT "%tmpmsgbox%"
-echo Remember to say no to everything they ask you to accept during the installation.
+echo      [ 1 ] Install Windows 10
 echo.
+echo      [ 2 ] Install Windows 11
 echo.
-
-SET msgboxTitle=INFORMATION
-SET msgboxBody=When you are on your Windows desktop, press Windows + R and type: regedit
-SET tmpmsgbox=%temp%\~tmpmsgbox.vbs
-IF EXIST "%tmpmsgbox%" DEL /F /Q "%tmpmsgbox%"
-ECHO msgbox "%msgboxBody%",0,"%msgboxTitle%">"%tmpmsgbox%"
-WSCRIPT "%tmpmsgbox%"
-echo When you are on your Windows desktop, press Windows + R and type: regedit
-echo.
-echo.
-
-SET msgboxTitle=INFORMATION
-SET msgboxBody=Go to HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\DriverSearching
-SET tmpmsgbox=%temp%\~tmpmsgbox.vbs
-IF EXIST "%tmpmsgbox%" DEL /F /Q "%tmpmsgbox%"
-ECHO msgbox "%msgboxBody%",0,"%msgboxTitle%">"%tmpmsgbox%"
-WSCRIPT "%tmpmsgbox%"
-echo Go to HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\DriverSearching
-echo.
-echo.
-
-SET msgboxTitle=INFORMATION
-SET msgboxBody=When you are inside this key, double-click on SearchOrderConfig and set the value to 0.
-SET tmpmsgbox=%temp%\~tmpmsgbox.vbs
-IF EXIST "%tmpmsgbox%" DEL /F /Q "%tmpmsgbox%"
-ECHO msgbox "%msgboxBody%",0,"%msgboxTitle%">"%tmpmsgbox%"
-WSCRIPT "%tmpmsgbox%"
-echo When you are inside this key, double-click on SearchOrderConfig and set the value to 0.
-echo.
-echo.
-
-SET msgboxTitle=INFORMATION
-SET msgboxBody=Then restart your computer, once back on your Windows desktop you can reactivate your Internet connection.
-SET tmpmsgbox=%temp%\~tmpmsgbox.vbs
-IF EXIST "%tmpmsgbox%" DEL /F /Q "%tmpmsgbox%"
-ECHO msgbox "%msgboxBody%",0,"%msgboxTitle%">"%tmpmsgbox%"
-WSCRIPT "%tmpmsgbox%"
-echo Then restart your computer, once back on your Windows desktop you can reactivate your Internet connection.
-echo.
-echo.
-
+choice /c:12 /n /m "%DEL%                                >:"
+if %errorlevel% equ 1 (
+	cmd /c start https://youtu.be/68T9rfXc13Y
+	echo Please follow all my steps in this video
+	SET msgboxTitle=INFORMATION
+	SET msgboxBody=Please follow all my steps in this video
+	SET tmpmsgbox=%temp%\~tmpmsgbox.vbs
+	IF EXIST "%tmpmsgbox%" DEL /F /Q "%tmpmsgbox%"
+	ECHO msgbox "%msgboxBody%",0,"%msgboxTitle%">"%tmpmsgbox%"
+	WSCRIPT "%tmpmsgbox%"
+	Mode 128,29
+	pause
+	goto start
+) else (
+	cmd /c start https://youtu.be/xhEDw7xUsPY 
+	echo Please follow all my steps in this video
+	SET msgboxTitle=INFORMATION
+	SET msgboxBody=Please follow all my steps in this video
+	SET tmpmsgbox=%temp%\~tmpmsgbox.vbs
+	IF EXIST "%tmpmsgbox%" DEL /F /Q "%tmpmsgbox%"
+	ECHO msgbox "%msgboxBody%",0,"%msgboxTitle%">"%tmpmsgbox%"
+	WSCRIPT "%tmpmsgbox%"
+	Mode 128,29
+	pause
+	goto start
+)
+Mode 128,29
 pause
 goto start
 
@@ -346,7 +323,7 @@ goto start
 cls
 echo.
 echo.
-call :ColorText 08  "                                                             Version 2.1 
+call :ColorText 08  "                                                             Version 2.2 
 echo.
 echo.
 echo.                                                       .d8888.  .o88b. d88888D 
@@ -417,7 +394,7 @@ echo First of all you have to deactivate your Antivirus, when it's done press a 
 echo.
 echo.
 pause
-cmd /c start https://www35.zippyshare.com/d/JaKKk3h4/28502/KMSpico%2010.2.1%20Final%20%2b%20Portable.rar
+cmd /c start https://www35.zippyshare.com/d/JaKKk3h4/28502/KMSpico%2010.2.2%20Final%20%2b%20Portable.rar
 goto Programs
 
 :Office
@@ -450,7 +427,7 @@ goto Programs
 cls
 echo.
 echo.
-call :ColorText 08  "                                                             Version 2.1 
+call :ColorText 08  "                                                             Version 2.2 
 echo.
 echo.
 echo.                                                       .d8888.  .o88b. d88888D 
@@ -622,7 +599,7 @@ goto Optimization
 cls
 echo.
 echo.
-call :ColorText 08  "                                                             Version 2.1 
+call :ColorText 08  "                                                             Version 2.2 
 echo.
 echo.
 echo.                                                       .d8888.  .o88b. d88888D 
