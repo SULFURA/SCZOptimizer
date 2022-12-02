@@ -16,9 +16,10 @@
 @echo off
 color 03
 Mode 128,29
-title Script SCZOptimizer 2.2
+title Script SCZOptimizer 2.3
 setlocal EnableDelayedExpansion
 
+C:
 SET msgboxTitle=INFORMATION
 SET msgboxBody=Please save your work before using the script
 SET tmpmsgbox=%temp%\~tmpmsgbox.vbs
@@ -54,7 +55,7 @@ curl -g -L -# -o "C:\SULFURAX\SCZOptimizer\NSudo.exe" "https://github.com/SULFUR
 goto CheckUpdates
 
 :CheckUpdates
-set local=2.2
+set local=2.3
 set localtwo=%local%
 if exist "%temp%\Updater.bat" DEL /S /Q /F "%temp%\Updater.bat" >nul 2>&1
 curl -g -L -# -o "%temp%\Updater.bat" "https://raw.githubusercontent.com/SULFURA/SCZOptimizer/main/files/SCZOptimizer_Version" >nul 2>&1
@@ -105,7 +106,7 @@ goto Menu
 cls
 echo.
 echo.
-call :ColorText 08  "                                                             Version 2.2 
+call :ColorText 08  "                                                             Version 2.3 
 echo.
 echo.
 echo.                                                       .d8888.  .o88b. d88888D 
@@ -163,7 +164,7 @@ goto Menu
 cls
 echo.
 echo.
-call :ColorText 08  "                                                             Version 2.2 
+call :ColorText 08  "                                                             Version 2.3 
 echo.
 echo.
 echo.                                                       .d8888.  .o88b. d88888D 
@@ -212,7 +213,7 @@ if /i "%choose%"=="X" (goto Menu)
 cls
 echo.
 echo.
-call :ColorText 08  "                                                             Version 2.2 
+call :ColorText 08  "                                                             Version 2.3 
 echo.
 echo.
 echo.                                                       .d8888.  .o88b. d88888D 
@@ -323,7 +324,7 @@ goto start
 cls
 echo.
 echo.
-call :ColorText 08  "                                                             Version 2.2 
+call :ColorText 08  "                                                             Version 2.3 
 echo.
 echo.
 echo.                                                       .d8888.  .o88b. d88888D 
@@ -378,6 +379,7 @@ goto Programs
 :ProgramsScript
 cls
 curl -g -L -# -o "C:\SULFURAX\SCZOptimizer\Programs.cmd" "https://raw.githubusercontent.com/SULFURA/SCZOptimizer/main/files/Programs.cmd"
+C:
 cd "C:\SULFURAX\SCZOptimizer"
 start Programs.cmd
 goto Programs
@@ -394,7 +396,7 @@ echo First of all you have to deactivate your Antivirus, when it's done press a 
 echo.
 echo.
 pause
-cmd /c start https://www35.zippyshare.com/d/JaKKk3h4/28502/KMSpico%2010.2.2%20Final%20%2b%20Portable.rar
+cmd /c start https://www35.zippyshare.com/d/JaKKk3h4/28502/KMSpico%2010.2.3%20Final%20%2b%20Portable.rar
 goto Programs
 
 :Office
@@ -427,7 +429,7 @@ goto Programs
 cls
 echo.
 echo.
-call :ColorText 08  "                                                             Version 2.2 
+call :ColorText 08  "                                                             Version 2.3 
 echo.
 echo.
 echo.                                                       .d8888.  .o88b. d88888D 
@@ -599,7 +601,7 @@ goto Optimization
 cls
 echo.
 echo.
-call :ColorText 08  "                                                             Version 2.2 
+call :ColorText 08  "                                                             Version 2.3 
 echo.
 echo.
 echo.                                                       .d8888.  .o88b. d88888D 
