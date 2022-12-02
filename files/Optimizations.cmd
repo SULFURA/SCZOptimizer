@@ -29,13 +29,6 @@ powercfg /d 44444444-4444-4444-4444-444444444449 >nul 2>&1
 powercfg -import "C:\SULFURAX\SCZOptimizer\SCZOptimizer.pow" 44444444-4444-4444-4444-444444444449 >nul 2>&1
 powercfg /changename 44444444-4444-4444-4444-444444444449 "SCZ Optimizer" "This is the best power plan. :p" >nul 2>&1
 
-set THREADS=%NUMBER_OF_PROCESSORS%
-for /f "tokens=2 delims==" %%n in ('wmic cpu get numberOfCores /value') do set CORES=%%n
-IF "%CORES%" EQU "%NUMBER_OF_PROCESSORS%" (
-	powercfg -setacvalueindex 44444444-4444-4444-4444-444444444449 sub_processor IDLEDISABLE 1
-) else (
-	powercfg -setacvalueindex 44444444-4444-4444-4444-444444444449 sub_processor IDLEDISABLE 0
-)
 powercfg -setacvalueindex 44444444-4444-4444-4444-444444444449 sub_processor IDLEDISABLE 0
 
 powercfg -setactive "44444444-4444-4444-4444-444444444449" >nul 2>&1
