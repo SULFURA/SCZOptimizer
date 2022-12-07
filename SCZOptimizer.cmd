@@ -16,7 +16,7 @@
 @echo off
 color 03
 Mode 128,29
-title Script SCZOptimizer 2.3
+title Script SCZOptimizer 2.4
 setlocal EnableDelayedExpansion
 
 C:
@@ -55,7 +55,7 @@ curl -g -L -# -o "C:\SULFURAX\SCZOptimizer\NSudo.exe" "https://github.com/SULFUR
 goto CheckUpdates
 
 :CheckUpdates
-set local=2.3
+set local=2.4
 set localtwo=%local%
 if exist "%temp%\Updater.bat" DEL /S /Q /F "%temp%\Updater.bat" >nul 2>&1
 curl -g -L -# -o "%temp%\Updater.bat" "https://raw.githubusercontent.com/SULFURA/SCZOptimizer/main/files/SCZOptimizer_Version" >nul 2>&1
@@ -106,7 +106,7 @@ goto Menu
 cls
 echo.
 echo.
-call :ColorText 08  "                                                             Version 2.3 
+call :ColorText 08  "                                                             Version 2.4 
 echo.
 echo.
 echo.                                                       .d8888.  .o88b. d88888D 
@@ -164,7 +164,7 @@ goto Menu
 cls
 echo.
 echo.
-call :ColorText 08  "                                                             Version 2.3 
+call :ColorText 08  "                                                             Version 2.4 
 echo.
 echo.
 echo.                                                       .d8888.  .o88b. d88888D 
@@ -213,7 +213,7 @@ if /i "%choose%"=="X" (goto Menu)
 cls
 echo.
 echo.
-call :ColorText 08  "                                                             Version 2.3 
+call :ColorText 08  "                                                             Version 2.4 
 echo.
 echo.
 echo.                                                       .d8888.  .o88b. d88888D 
@@ -273,6 +273,36 @@ curl -g -L -# -o "C:\SULFURAX\SCZOptimizer\Rufus.jpg" "https://raw.githubusercon
 C:
 cd "C:\SULFURAX\SCZOptimizer"
 start Rufus.jpg
+pause
+Mode 65,16
+echo.
+echo            Which vWindows do you want yo install ?
+echo                    - Windows 10 / 11 -
+echo  ______________________________________________________________
+echo.
+echo      [ 1 ] Install Windows 10
+echo.
+echo      [ 2 ] Install Windows 11
+echo.
+choice /c:12 /n /m "%DEL%                                >:"
+if %errorlevel% equ 1 (
+	curl -g -L -# -o "C:\SULFURAX\SCZOptimizer\W10_Rufus.png" "https://raw.githubusercontent.com/SULFURA/SCZOptimizer/main/files/W10_Rufus.png"
+	C:
+	cd "C:\SULFURAX\SCZOptimizer"
+	start W10_Rufus.png
+	Mode 128,29
+	pause
+	goto start
+) else (
+	curl -g -L -# -o "C:\SULFURAX\SCZOptimizer\W11_Rufus.png" "https://raw.githubusercontent.com/SULFURA/SCZOptimizer/main/files/W11_Rufus.png"
+	C:
+	cd "C:\SULFURAX\SCZOptimizer"
+	start W11_Rufus.png
+	Mode 128,29
+	pause
+	goto start
+)
+Mode 128,29
 cls
 goto start
 
@@ -324,7 +354,7 @@ goto start
 cls
 echo.
 echo.
-call :ColorText 08  "                                                             Version 2.3 
+call :ColorText 08  "                                                             Version 2.4 
 echo.
 echo.
 echo.                                                       .d8888.  .o88b. d88888D 
@@ -396,7 +426,7 @@ echo First of all you have to deactivate your Antivirus, when it's done press a 
 echo.
 echo.
 pause
-cmd /c start https://www35.zippyshare.com/d/JaKKk3h4/28502/KMSpico%2010.2.3%20Final%20%2b%20Portable.rar
+cmd /c start https://www35.zippyshare.com/d/JaKKk3h4/28502/KMSpico%2010.2.4%20Final%20%2b%20Portable.rar
 goto Programs
 
 :Office
@@ -429,7 +459,7 @@ goto Programs
 cls
 echo.
 echo.
-call :ColorText 08  "                                                             Version 2.3 
+call :ColorText 08  "                                                             Version 2.4 
 echo.
 echo.
 echo.                                                       .d8888.  .o88b. d88888D 
@@ -601,7 +631,7 @@ goto Optimization
 cls
 echo.
 echo.
-call :ColorText 08  "                                                             Version 2.3 
+call :ColorText 08  "                                                             Version 2.4 
 echo.
 echo.
 echo.                                                       .d8888.  .o88b. d88888D 
