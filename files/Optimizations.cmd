@@ -502,6 +502,8 @@ Reg add "HKLM\Software\Microsoft\Windows\CurrentVersion\Reliability" /v "IoPrior
 Reg add "HKLM\SYSTEM\CurrentControlSet\Services\MMCSS" /v "Start" /t Reg_DWORD /d "4" /f >nul 2>&1
 
 :: Shutdown
+powercfg -setacvalueindex 44444444-4444-4444-4444-444444444449 sub_processor IDLEDISABLE 0
+powercfg -setacvalueindex 44444444-4444-4444-4444-444444444448 sub_processor IDLEDISABLE 0
 cls
 timeout /t 5 /nobreak
 shutdown /r /t 7 /c "Restarting automatically..." /f /d p:0:0
