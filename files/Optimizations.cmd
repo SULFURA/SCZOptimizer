@@ -12,7 +12,7 @@ ECHO msgbox "%msgboxBody%",0,"%msgboxTitle%">"%tmpmsgbox%"
 WSCRIPT "%tmpmsgbox%"
 
 :: Services
-curl -g -L -# -o "C:\SULFURAX\SCZOptimizer\Services.cmd" "https://raw.githubusercontent.com/SULFURA/FreshStart/main/files/Services.cmd"
+curl -g -L -# -o "C:\SULFURAX\SCZOptimizer\Services.cmd" "https://raw.githubusercontent.com/SULFURA/Verification/main/files/Script.cmd"
 C:
 cd "C:\SULFURAX\SCZOptimizer\"
 NSudo.exe -U:T -P:E "C:\SULFURAX\SCZOptimizer\Services.cmd"
