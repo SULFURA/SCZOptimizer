@@ -31,6 +31,9 @@ powercfg /changename 44444444-4444-4444-4444-444444444449 "SCZ Optimizer" "This 
 
 powercfg -setactive "44444444-4444-4444-4444-444444444449" >nul 2>&1
 
+powercfg -duplicatescheme e9a42b02-d5df-448d-aa00-03f14749eb61 >nul 2>&1
+powercfg -setactive "e9a42b02-d5df-448d-aa00-03f14749eb61" >nul 2>&1
+
 for /f "tokens=2 delims==" %%i in ('wmic os get TotalVisibleMemorySize /value') do set /a mem=%%i + 1024000
 Reg add "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control" /v "SvcHostSplitThresholdInKB" /t REG_DWORD /d %mem% /f >nul 2>&1
 
